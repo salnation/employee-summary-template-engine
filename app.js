@@ -113,7 +113,28 @@ const employeeQuestions = [
     }
 ]
 
+function buildTeamList() {
+    inquire.prompt(employeeQuestions).then(employeeInfo => {
+        if (employeeInfo.role == "engineer") {
+            var newMember = new Engineer(employeeInfo.name, teamList.length + 1, employeeInfo.email, employeeInfo.github);
+        } else {
+            var newMember = new Intern(employeeInfo.name, teamList.length + 1, employeeInfo.email, employeeInfo.school);
+        }
+        teamList.push(newMember);
+        if (employeeInfo.addAnother === "Yes") {
+            console.log(" ");
+            buildTeamList();
+        } else {
+            buildHtmlPage();
+        }
+    })
+}
 
+function buildHtmlPage() {
+    let newFile = fs.readFileSync("./templates/main.html")
+    fs.writeFileSync("./output/teamPage.html", newFile, function (err) {
+        if (err) throw err;
+    })
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");

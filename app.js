@@ -136,6 +136,25 @@ function buildHtmlPage() {
         if (err) throw err;
     })
 
+    console.log("Main page created!");
+
+    // if statement to determine if the employee is a manager, an engineer, or an intern and what the member name is 
+
+    for (member of teamList) {
+        if (member.getRole() == "Manager") {
+            buildHtmlCard("manager", member.getName(), member.getId(), member.getEmail(), "Office: " + member.getOfficeNumber());
+        } else if (member.getRole() == "Engineer") {
+            buildHtmlCard("engineer", member.getName(), member.getId(), member.getEmail(), "Github: " + member.getGithub());
+        } else if (member.getRole() == "Intern") {
+            buildHtmlCard("intern", member.getName(), member.getId(), member.getEmail(), "School: " + member.getSchool());
+        }
+    }
+
+    fs.appendFileSync("./output/teamPage.html", "</div></main></body></html>", function (err) {
+        if (err) throw err;
+    });
+    console.log("Team page tags - closed and completed.")
+
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 

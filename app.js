@@ -1,8 +1,7 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
-const path = require("path");
+const inquire = require("inquirer");
 const fs = require("fs");
 
 const teamList = [];
@@ -10,10 +9,10 @@ const managerQuestions = [
     {
         type: "input",
         name: "name",
-        message: "Enter manager name:",
+        message: "Enter manager's name here:",
         validate: async (input) => {
             if (input == "" || /\s/.test(input)) {
-                return "Please enter first or last name.";
+                return "Please enter first or last name here.";
             }
             return true;
         }
@@ -35,7 +34,7 @@ const managerQuestions = [
         message: "Enter office number:",
         validate: async (input) => {
             if (isNaN(input)) {
-                return "Please enter a number";
+                return "Please enter a number here.";
             }
             return true;
         }
@@ -43,7 +42,7 @@ const managerQuestions = [
     {
         type: "list",
         name: "hasTeam",
-        message: "Do you have any team members?",
+        message: "Are there any other members of your team?",
         choices: ["Yes", "No"]
     }
 ]
@@ -178,3 +177,5 @@ function init() {
         }
     })
 }
+
+init();

@@ -31,10 +31,10 @@ const managerQuestions = [
     {
         type: "input",
         name: "officeNum",
-        message: "Enter office number:",
+        message: "Enter employee ID number:",
         validate: async (input) => {
             if (isNaN(input)) {
-                return "Please enter a number here.";
+                return "Please enter the number here.";
             }
             return true;
         }

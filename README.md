@@ -33,3 +33,17 @@ Files included in the repository:
   * `intern.html`
   
   * `manager.html`
+
+  SCREENSHOTS:
+
+  ![ScreenShot](screenshotDemo1.png)
+
+  ![ScreenShot](screenshotDemo2.png)
+
+  ![ScreenShot](screenshotDemo3.png)
+
+  ![ScreenShot](screenshotDemo4.png)
+
+  ![ScreenShot](screenshotDemo5.png)
+
+  ![ScreenShot](screenshotDemoERR!.png)
